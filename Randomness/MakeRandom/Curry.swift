@@ -1,8 +1,8 @@
 //
-//  Random.swift
+//  Curry.swift
 //  Randomness
 //
-//  Created by Preston Spalding on 08/01/2020.
+//  Created by Preston Spalding on 09/01/2020.
 //  Copyright © 2020 Preston Spalding. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,31 +26,26 @@
 
 import Foundation
 
+func curry<A,B,C>(_ closure: @escaping (A,B) -> C) -> (A) -> (B) -> C {
+    return { a in { b in closure(a,b) }}
+}
 
+func curry<A,B,C,D>(_ closure: @escaping (A,B,C) -> D) -> (A) -> (B) -> (C) -> D {
+    return { a in { b in { c in closure(a,b,c) }}}
+}
 
+func curry<A,B,C,D,E>(_ closure: @escaping (A,B,C,D) -> E) -> (A) -> (B) -> (C) -> (D) -> E {
+    return { a in { b in { c in { d in closure(a,b,c,d) }}}}
+}
 
+func curry<A,B,C,D,E,F>(_ closure: @escaping (A,B,C,D,E) -> F) -> (A) -> (B) -> (C) -> (D) -> (E) -> F {
+    return { a in { b in { c in { d in { e in closure(a,b,c,d,e) }}}}}
+}
 
+func curry<A,B,C,D,E,F,G>(_ closure: @escaping (A,B,C,D,E,F) -> G) -> (A) -> (B) -> (C) -> (D) -> (E) -> (F) -> G {
+    return { a in { b in { c in { d in { e in { f in closure(a,b,c,d,e,f) }}}}}}
+}
 
-
-
-
-//
-//
-//func makeRandom<T: RandomValue>(
-//    type _: T.Type,
-//    range: Range<T>,
-//    quantity: Int)
-//    -> [Generator<T.Value>] where T.RangeValue == T
-//{
-//
-//    var array: [Generator<T.Value>] = []
-//    for _ in 1...quantity {
-//        let r = T.wrapRandom(in: range)
-//        array.append(r)
-//    }
-//    return array
-//}
-
-
-
-
+func curry<A,B,C,D,E,F,G,H>(_ closure: @escaping (A,B,C,D,E,F,G) -> H) -> (A) -> (B) -> (C) -> (D) -> (E) -> (F) -> (G) -> H {
+    return { a in { b in { c in { d in { e in { f in { g in closure(a,b,c,d,e,f,g) }}}}}}}
+}

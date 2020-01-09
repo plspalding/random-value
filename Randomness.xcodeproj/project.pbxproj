@@ -12,6 +12,10 @@
 		5A90EBD923C6765700370756 /* Randomness.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A90EBCB23C6765700370756 /* Randomness.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A90EBE323C676B800370756 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EBE223C676B800370756 /* Random.swift */; };
 		5A90EBE523C6835200370756 /* RandomBaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EBE423C6835200370756 /* RandomBaseTypes.swift */; };
+		5A90EC2F23C7F22600370756 /* RandomValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC2E23C7F22600370756 /* RandomValue.swift */; };
+		5A90EC3123C7F25500370756 /* RandomValueSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3023C7F25500370756 /* RandomValueSimple.swift */; };
+		5A90EC3623C7F2C600370756 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3523C7F2C600370756 /* Curry.swift */; };
+		5A90EC3823C7F2CF00370756 /* MakeRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3723C7F2CF00370756 /* MakeRandom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 		5A90EBD823C6765700370756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A90EBE223C676B800370756 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		5A90EBE423C6835200370756 /* RandomBaseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBaseTypes.swift; sourceTree = "<group>"; };
+		5A90EC2E23C7F22600370756 /* RandomValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomValue.swift; sourceTree = "<group>"; };
+		5A90EC3023C7F25500370756 /* RandomValueSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomValueSimple.swift; sourceTree = "<group>"; };
+		5A90EC3523C7F2C600370756 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
+		5A90EC3723C7F2CF00370756 /* MakeRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRandom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +83,12 @@
 		5A90EBCA23C6765700370756 /* Randomness */ = {
 			isa = PBXGroup;
 			children = (
-				5A90EBCB23C6765700370756 /* Randomness.h */,
+				5A90EC3223C7F28500370756 /* Protocols */,
+				5A90EC3423C7F2A500370756 /* MakeRandom */,
 				5A90EBE223C676B800370756 /* Random.swift */,
 				5A90EBE423C6835200370756 /* RandomBaseTypes.swift */,
 				5A90EBCC23C6765700370756 /* Info.plist */,
+				5A90EC3323C7F29800370756 /* Other */,
 			);
 			path = Randomness;
 			sourceTree = "<group>";
@@ -90,6 +100,32 @@
 				5A90EBD823C6765700370756 /* Info.plist */,
 			);
 			path = RandomnessTests;
+			sourceTree = "<group>";
+		};
+		5A90EC3223C7F28500370756 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5A90EC2E23C7F22600370756 /* RandomValue.swift */,
+				5A90EC3023C7F25500370756 /* RandomValueSimple.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5A90EC3323C7F29800370756 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5A90EBCB23C6765700370756 /* Randomness.h */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		5A90EC3423C7F2A500370756 /* MakeRandom */ = {
+			isa = PBXGroup;
+			children = (
+				5A90EC3523C7F2C600370756 /* Curry.swift */,
+				5A90EC3723C7F2CF00370756 /* MakeRandom.swift */,
+			);
+			path = MakeRandom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A90EC3623C7F2C600370756 /* Curry.swift in Sources */,
 				5A90EBE323C676B800370756 /* Random.swift in Sources */,
+				5A90EC2F23C7F22600370756 /* RandomValue.swift in Sources */,
+				5A90EC3123C7F25500370756 /* RandomValueSimple.swift in Sources */,
+				5A90EC3823C7F2CF00370756 /* MakeRandom.swift in Sources */,
 				5A90EBE523C6835200370756 /* RandomBaseTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
