@@ -1,8 +1,8 @@
 //
-//  Random.swift
+//  RandomValue.swift
 //  Randomness
 //
-//  Created by Preston Spalding on 08/01/2020.
+//  Created by Preston Spalding on 09/01/2020.
 //  Copyright © 2020 Preston Spalding. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,31 +26,31 @@
 
 import Foundation
 
+typealias Generator<T> = () -> T
 
+protocol RandomValue {
+    associatedtype Value where Value: Comparable, Value: RandomValue
+    static func wrappedRandom(in range: Range<Value>) -> () -> Value
+    static func wrappedRandom(in range: ClosedRange<Value>) -> () -> Value
+    
+    static func closedRange() -> ClosedRange<Value>
+}
 
+extension RandomValue where Self: Comparable {
+    static func wrappedRandom(in range: Range<Self.Value>) -> () -> Self.Value {
+        return wrappedRandom(in: range.lowerBound...range.upperBound)
+    }
+}
 
+struct User {
+    let name: String
+    let age: Int
+    let score: Int
+    let team: String
+}
 
-
-
-
-
-//
-//
-//func makeRandom<T: RandomValue>(
-//    type _: T.Type,
-//    range: Range<T>,
-//    quantity: Int)
-//    -> [Generator<T.Value>] where T.RangeValue == T
-//{
-//
-//    var array: [Generator<T.Value>] = []
-//    for _ in 1...quantity {
-//        let r = T.wrapRandom(in: range)
-//        array.append(r)
-//    }
-//    return array
-//}
-
-
-
-
+extension User: RandomValueSimple {
+    static func wrappedRandom() -> () -> User {
+        return makeRandom(User.init)
+    }
+}

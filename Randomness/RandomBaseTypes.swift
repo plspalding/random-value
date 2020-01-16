@@ -26,108 +26,172 @@
 
 import Foundation
 
-extension Int: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Int>) -> () -> Int {
+extension Int: RandomValue, RandomValueSimple {
+    
+    static func wrappedRandom(in range: ClosedRange<Int>) -> () -> Int {
         let r = Int.random(in: range)
         return { return r }
     }
+    
+    static func closedRange() -> ClosedRange<Int> {
+        return .min...Int.max
+    }
 }
 
-extension String: RandomValue {
-    static func wrapRandom(in range: ClosedRange<String>) -> () -> String {
+extension String: RandomValue, RandomValueSimple {
+    
+    // TODO: Think I need to add a protocol just for handling string values???
+    // These implementations needs to be changed!!!
+    
+    static func closedRange() -> ClosedRange<String> {
+        return ""..."abc"
+    }
+    
+    static func wrappedRandom(in range: ClosedRange<String>) -> () -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let s = String((0..<Int.random(in: 1..<100)).map { _ in letters.randomElement()! })
+        let s = String((0..<Int.random(in: 0...100)).map { _ in letters.randomElement()! })
         return { s }
     }
 }
 
-extension Bool: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Bool>) -> () -> Bool {
+extension Bool: RandomValueSimple {
+    
+    static func wrappedRandom() -> Bool {
+        return wrappedRandom()()
+    }
+    
+    static func wrappedRandom() -> () -> Bool {
         let r = Bool.random()
         return { r }
     }
 }
 
-extension Bool: Comparable {
-    public static func < (lhs: Bool, rhs: Bool) -> Bool {
-        return false
+//extension Double: RandomValue {
+//    static func wrappedRandom(in range: ClosedRange<Double>) -> () -> Double {
+//        let r = Double.random(in: range)
+//        return { r }
+//    }
+//}
+
+//extension Float: RandomValue {
+//    static func wrappedRandom(in range: ClosedRange<Float>) -> () -> Float {
+//        let r = Float.random(in: range)
+//        return { r }
+//    }
+//}
+//
+extension Int8: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<Int8>) -> () -> Int8 {
+        let r = Int8.random(in: range)
+        return { r }
+    }
+
+    static func closedRange() -> ClosedRange<Int8> {
+        return .min...Int8.max
+    }
+}
+
+extension Int16: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<Int16>) -> () -> Int16 {
+        let r = Int16.random(in: range)
+        return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<Int16> {
+        return .min...Int16.max
+    }
+}
+
+extension Int32: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<Int32>) -> () -> Int32 {
+        let r = Int32.random(in: range)
+        return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<Int32> {
+        return .min...Int32.max
+    }
+}
+
+extension Int64: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<Int64>) -> () -> Int64 {
+        let r = Int64.random(in: range)
+        return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<Int64> {
+        return .min...Int64.max
+    }
+}
+
+extension UInt: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<UInt>) -> () -> UInt {
+        let r = UInt.random(in: range)
+        return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<UInt> {
+        return .min...UInt.max
+    }
+}
+
+extension UInt8: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<UInt8>) -> () -> UInt8 {
+        let r = UInt8.random(in: range)
+        return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<UInt8> {
+        return .min...UInt8.max
     }
 }
 
 
-extension Double: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Double>) -> () -> Double {
-        let r = Double.random(in: range) // TODO: need to use a passed in ClosedRange of double.
+extension UInt16: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<UInt16>) -> () -> UInt16 {
+        let r = UInt16.random(in: range)
         return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<UInt16> {
+        return .min...UInt16.max
     }
 }
 
-extension Float: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Float>) -> () -> Float {
-        let r = Float.random(in: range) // TODO: need to use a passed in ClosedRange of Float.
+extension UInt32: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<UInt32>) -> () -> UInt32 {
+        let r = UInt32.random(in: range)
         return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<UInt32> {
+        return .min...UInt32.max
     }
 }
 
-extension Int8: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Int8>) -> () -> Int8 {
-        let r = Int8.random(in: range) // TODO: need to use a passed in ClosedRange of Int8.
+extension UInt64: RandomValue, RandomValueSimple {
+    static func wrappedRandom(in range: ClosedRange<UInt64>) -> () -> UInt64 {
+        let r = UInt64.random(in: range)
         return { r }
+    }
+    
+    static func closedRange() -> ClosedRange<UInt64> {
+        return .min...UInt64.max
     }
 }
 
-extension Int16: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Int16>) -> () -> Int16 {
-        let r = Int16.random(in: range) // TODO: need to use a passed in ClosedRange of Int16.
-        return { r }
-    }
+struct Person {
+    let name: String
+    let age: Int
+    let score: Int
 }
 
-extension Int32: RandomValue {
-    static func wrapRandom(in range: ClosedRange<Int32>) -> () -> Int32 {
-        let r = Int32.random(in: range) // TODO: need to use a passed in ClosedRange of Int32.
-        return { r }
+extension Person: RandomValueSimple {
+    static func wrappedRandom() -> () -> Person {
+        return makeRandom(Person.init)
     }
+    
+    typealias Value = Person
+    
+    
 }
-
-extension Int64: RandomValue {static func wrapRandom(in range: ClosedRange<Int64>) -> () -> Int64 {
-        let r = Int64.random(in: range) // TODO: need to use a passed in ClosedRange of Int64.
-        return { r }
-    }}
-
-extension UInt: RandomValue {
-    static func wrapRandom(in range: ClosedRange<UInt>) -> () -> UInt {
-        let r = UInt.random(in: range) // TODO: need to use a passed in ClosedRange of UInt.
-        return { r }
-    }
-}
-
-extension UInt8: RandomValue {
-    static func wrapRandom(in range: ClosedRange<UInt8>) -> () -> UInt8 {
-        let r = UInt8.random(in: range) // TODO: need to use a passed in ClosedRange of UInt8.
-        return { r }
-    }
-}
-
-
-extension UInt16: RandomValue {
-    static func wrapRandom(in range: ClosedRange<UInt16>) -> () -> UInt16 {
-        let r = UInt16.random(in: 1...10) // TODO: need to use a passed in ClosedRange of UInt16.
-        return { r }
-    }
-}
-
-extension UInt32: RandomValue {
-    static func wrapRandom(in range: ClosedRange<UInt32>) -> () -> UInt32 {
-        let r = UInt32.random(in: 1...10) // TODO: need to use a passed in ClosedRange of UInt32.
-        return { r }
-    }
-}
-
-extension UInt64: RandomValue {
-    static func wrapRandom(in range: ClosedRange<UInt64>) -> () -> UInt64 {
-        let r = UInt64.random(in: 1...10) // TODO: need to use a passed in ClosedRange of UInt64.
-        return { r }
-    }
-}
-
