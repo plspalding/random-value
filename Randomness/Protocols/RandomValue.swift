@@ -41,3 +41,16 @@ extension RandomValue where Self: Comparable {
         return wrappedRandom(in: range.lowerBound...range.upperBound)
     }
 }
+
+struct User {
+    let name: String
+    let age: Int
+    let score: Int
+    let team: String
+}
+
+extension User: RandomValueSimple {
+    static func wrappedRandom() -> () -> User {
+        return makeRandom(User.init)
+    }
+}

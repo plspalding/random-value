@@ -14,7 +14,6 @@
 		5A90EBE523C6835200370756 /* RandomBaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EBE423C6835200370756 /* RandomBaseTypes.swift */; };
 		5A90EC2F23C7F22600370756 /* RandomValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC2E23C7F22600370756 /* RandomValue.swift */; };
 		5A90EC3123C7F25500370756 /* RandomValueSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3023C7F25500370756 /* RandomValueSimple.swift */; };
-		5A90EC3623C7F2C600370756 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3523C7F2C600370756 /* Curry.swift */; };
 		5A90EC3823C7F2CF00370756 /* MakeRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90EC3723C7F2CF00370756 /* MakeRandom.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +38,6 @@
 		5A90EBE423C6835200370756 /* RandomBaseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBaseTypes.swift; sourceTree = "<group>"; };
 		5A90EC2E23C7F22600370756 /* RandomValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomValue.swift; sourceTree = "<group>"; };
 		5A90EC3023C7F25500370756 /* RandomValueSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomValueSimple.swift; sourceTree = "<group>"; };
-		5A90EC3523C7F2C600370756 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		5A90EC3723C7F2CF00370756 /* MakeRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRandom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +120,6 @@
 		5A90EC3423C7F2A500370756 /* MakeRandom */ = {
 			isa = PBXGroup;
 			children = (
-				5A90EC3523C7F2C600370756 /* Curry.swift */,
 				5A90EC3723C7F2CF00370756 /* MakeRandom.swift */,
 			);
 			path = MakeRandom;
@@ -238,7 +235,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A90EC3623C7F2C600370756 /* Curry.swift in Sources */,
 				5A90EBE323C676B800370756 /* Random.swift in Sources */,
 				5A90EC2F23C7F22600370756 /* RandomValue.swift in Sources */,
 				5A90EC3123C7F25500370756 /* RandomValueSimple.swift in Sources */,

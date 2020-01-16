@@ -65,7 +65,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, T>(
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, T>(
-    _ closure: (A, B, C) -> T)
+    _ closure: (A,B,C) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C
 {
     let a = A.wrappedRandom()()
@@ -76,7 +76,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, T>(
-    _ closure: (A, B, C, D) -> T)
+    _ closure: (A,B,C,D) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D
 {
     let a = A.wrappedRandom()()
@@ -88,7 +88,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, T>(
-    _ closure: (A, B, C, D, E) -> T)
+    _ closure: (A,B,C,D,E) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E
 {
     let a = A.wrappedRandom()()
@@ -101,7 +101,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, T>(
-    _ closure: (A, B, C, D, E, F) -> T)
+    _ closure: (A,B,C,D,E,F) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F
 {
     let a = A.wrappedRandom()()
@@ -115,7 +115,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, T>(
-    _ closure: (A, B, C, D, E, F,G) -> T)
+    _ closure: (A,B,C,D,E,F,G) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G
 {
     let a = A.wrappedRandom()()
@@ -130,7 +130,7 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, T>(
-    _ closure: (A, B, C, D, E, F,G,H) -> T)
+    _ closure: (A,B,C,D,E,F,G,H) -> T)
     -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H
 {
     let a = A.wrappedRandom()()
@@ -144,3 +144,40 @@ func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple
     let result = closure(a,b,c,d,e,f,g,h)
     return { result }
 }
+
+func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, I: RandomValueSimple, T>(
+    _ closure: (A,B,C,D,E,F,G,H,I) -> T)
+    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I
+{
+    let a = A.wrappedRandom()()
+    let b = B.wrappedRandom()()
+    let c = C.wrappedRandom()()
+    let d = D.wrappedRandom()()
+    let e = E.wrappedRandom()()
+    let f = F.wrappedRandom()()
+    let g = G.wrappedRandom()()
+    let h = H.wrappedRandom()()
+    let i = I.wrappedRandom()()
+    let result = closure(a,b,c,d,e,f,g,h,i)
+    return { result }
+}
+
+func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, I: RandomValueSimple, J: RandomValueSimple, T>(
+    _ closure: (A,B,C,D,E,F,G,H,I,J) -> T)
+    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I, J.Value == J
+{
+    let a = A.wrappedRandom()()
+    let b = B.wrappedRandom()()
+    let c = C.wrappedRandom()()
+    let d = D.wrappedRandom()()
+    let e = E.wrappedRandom()()
+    let f = F.wrappedRandom()()
+    let g = G.wrappedRandom()()
+    let h = H.wrappedRandom()()
+    let i = I.wrappedRandom()()
+    let j = J.wrappedRandom()()
+    let result = closure(a,b,c,d,e,f,g,h,i,j)
+    return { result }
+}
+
+
