@@ -29,155 +29,154 @@ import Foundation
 // TODO: Is there a shorter way to write these. Maybe using currying?
 func makeRandom<T>(
     _ closure: @escaping () -> T)
-    -> () -> T
-{
+    -> T {
     let result = closure()
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, T>(
     _ closure: @escaping (A) -> T)
-    -> () -> T where A.Value == A
+    -> T where A.Value == A
 {
-    let a = A.wrappedRandom()()
+    let a = A.random()
     let result = closure(a)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, T>(
     _ closure: @escaping (A, B) -> T)
-    -> () -> T where A.Value == A, B.Value == B
+    -> T where A.Value == A, B.Value == B
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
     let result = closure(a,b)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, T>(
     _ closure: @escaping (A) -> (B) -> T)
-    -> () -> T where A.Value == A, B.Value == B
+    -> T where A.Value == A, B.Value == B
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
     let result = closure(a)(b)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, T>(
     _ closure: (A,B,C) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C
+    -> T where A.Value == A, B.Value == B, C.Value == C
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
     let result = closure(a,b,c)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, T>(
     _ closure: (A,B,C,D) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
     let result = closure(a,b,c,d)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
     let result = closure(a,b,c,d,e)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E,F) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
-    let f = F.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
+    let f = F.random()
     let result = closure(a,b,c,d,e,f)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E,F,G) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
-    let f = F.wrappedRandom()()
-    let g = G.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
+    let f = F.random()
+    let g = G.random()
     let result = closure(a,b,c,d,e,f,g)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E,F,G,H) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
-    let f = F.wrappedRandom()()
-    let g = G.wrappedRandom()()
-    let h = H.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
+    let f = F.random()
+    let g = G.random()
+    let h = H.random()
     let result = closure(a,b,c,d,e,f,g,h)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, I: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E,F,G,H,I) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
-    let f = F.wrappedRandom()()
-    let g = G.wrappedRandom()()
-    let h = H.wrappedRandom()()
-    let i = I.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
+    let f = F.random()
+    let g = G.random()
+    let h = H.random()
+    let i = I.random()
     let result = closure(a,b,c,d,e,f,g,h,i)
-    return { result }
+    return result
 }
 
 func makeRandom<A: RandomValueSimple, B: RandomValueSimple, C: RandomValueSimple, D: RandomValueSimple, E: RandomValueSimple, F: RandomValueSimple, G: RandomValueSimple, H: RandomValueSimple, I: RandomValueSimple, J: RandomValueSimple, T>(
     _ closure: (A,B,C,D,E,F,G,H,I,J) -> T)
-    -> () -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I, J.Value == J
+    -> T where A.Value == A, B.Value == B, C.Value == C, D.Value == D, E.Value == E, F.Value == F, G.Value == G, H.Value == H, I.Value == I, J.Value == J
 {
-    let a = A.wrappedRandom()()
-    let b = B.wrappedRandom()()
-    let c = C.wrappedRandom()()
-    let d = D.wrappedRandom()()
-    let e = E.wrappedRandom()()
-    let f = F.wrappedRandom()()
-    let g = G.wrappedRandom()()
-    let h = H.wrappedRandom()()
-    let i = I.wrappedRandom()()
-    let j = J.wrappedRandom()()
+    let a = A.random()
+    let b = B.random()
+    let c = C.random()
+    let d = D.random()
+    let e = E.random()
+    let f = F.random()
+    let g = G.random()
+    let h = H.random()
+    let i = I.random()
+    let j = J.random()
     let result = closure(a,b,c,d,e,f,g,h,i,j)
-    return { result }
+    return result
 }
 
 

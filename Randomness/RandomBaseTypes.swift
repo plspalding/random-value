@@ -27,171 +27,88 @@
 import Foundation
 
 extension Int: RandomValue, RandomValueSimple {
-    
-    static func wrappedRandom(in range: ClosedRange<Int>) -> () -> Int {
-        let r = Int.random(in: range)
-        return { return r }
-    }
-    
     static func closedRange() -> ClosedRange<Int> {
-        return .min...Int.max
+        .min...Int.max
     }
 }
 
+// Create Random value string or something as doesn't fit in random value
 extension String: RandomValue, RandomValueSimple {
+    static func random(in range: Range<String>) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let s = String((0..<Int.random(in: 0...100)).map { _ in letters.randomElement()! })
+        return s
+    }
     
-    // TODO: Think I need to add a protocol just for handling string values???
-    // These implementations needs to be changed!!!
+    static func random(in range: ClosedRange<String>) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let s = String((0..<Int.random(in: 0...100)).map { _ in letters.randomElement()! })
+        return s
+    }
     
     static func closedRange() -> ClosedRange<String> {
         return ""..."abc"
     }
-    
-    static func wrappedRandom(in range: ClosedRange<String>) -> () -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let s = String((0..<Int.random(in: 0...100)).map { _ in letters.randomElement()! })
-        return { s }
-    }
 }
 
-extension Bool: RandomValueSimple {
-    
-    static func wrappedRandom() -> Bool {
-        return wrappedRandom()()
-    }
-    
-    static func wrappedRandom() -> () -> Bool {
-        let r = Bool.random()
-        return { r }
-    }
-}
+extension Bool: RandomValueSimple {}
 
 //extension Double: RandomValue {
-//    static func wrappedRandom(in range: ClosedRange<Double>) -> () -> Double {
+//    static func random(in range: ClosedRange<Double>)  -> Double {
 //        let r = Double.random(in: range)
-//        return { r }
+//        return r
 //    }
 //}
 
 //extension Float: RandomValue {
-//    static func wrappedRandom(in range: ClosedRange<Float>) -> () -> Float {
+//    static func random(in range: ClosedRange<Float>)  -> Float {
 //        let r = Float.random(in: range)
-//        return { r }
+//        return r
 //    }
 //}
 //
 extension Int8: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<Int8>) -> () -> Int8 {
-        let r = Int8.random(in: range)
-        return { r }
-    }
-
     static func closedRange() -> ClosedRange<Int8> {
-        return .min...Int8.max
+        .min...Int8.max
     }
 }
-
 extension Int16: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<Int16>) -> () -> Int16 {
-        let r = Int16.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<Int16> {
-        return .min...Int16.max
+        .min...Int16.max
     }
 }
-
 extension Int32: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<Int32>) -> () -> Int32 {
-        let r = Int32.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<Int32> {
-        return .min...Int32.max
+        .min...Int32.max
     }
 }
-
 extension Int64: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<Int64>) -> () -> Int64 {
-        let r = Int64.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<Int64> {
-        return .min...Int64.max
+        .min...Int64.max
     }
 }
-
 extension UInt: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<UInt>) -> () -> UInt {
-        let r = UInt.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<UInt> {
-        return .min...UInt.max
+        .min...UInt.max
     }
 }
-
 extension UInt8: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<UInt8>) -> () -> UInt8 {
-        let r = UInt8.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<UInt8> {
-        return .min...UInt8.max
+        .min...UInt8.max
     }
 }
-
-
 extension UInt16: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<UInt16>) -> () -> UInt16 {
-        let r = UInt16.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<UInt16> {
-        return .min...UInt16.max
+        .min...UInt16.max
     }
 }
-
 extension UInt32: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<UInt32>) -> () -> UInt32 {
-        let r = UInt32.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<UInt32> {
-        return .min...UInt32.max
+        .min...UInt32.max
     }
 }
-
 extension UInt64: RandomValue, RandomValueSimple {
-    static func wrappedRandom(in range: ClosedRange<UInt64>) -> () -> UInt64 {
-        let r = UInt64.random(in: range)
-        return { r }
-    }
-    
     static func closedRange() -> ClosedRange<UInt64> {
-        return .min...UInt64.max
+        .min...UInt64.max
     }
-}
-
-struct Person {
-    let name: String
-    let age: Int
-    let score: Int
-}
-
-extension Person: RandomValueSimple {
-    static func wrappedRandom() -> () -> Person {
-        return makeRandom(Person.init)
-    }
-    
-    typealias Value = Person
-    
-    
 }

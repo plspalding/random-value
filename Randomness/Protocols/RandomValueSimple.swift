@@ -29,23 +29,10 @@ import Foundation
 protocol RandomValueSimple {
     associatedtype Value
     static func random() -> Value
-    static func wrappedRandom() -> () -> Value
 }
 
 extension RandomValueSimple where Self: RandomValue {
-    
     static func random() -> Self.Value {
-        return wrappedRandom(in: Self.closedRange())()
-    }
-    
-    static func wrappedRandom() -> () -> Self.Value {
-        return wrappedRandom(in: Self.closedRange())
-    }
-}
-
-extension RandomValueSimple {
-    
-    static func random() -> Self.Value {
-        return wrappedRandom()()
+        return random(in: Self.closedRange())
     }
 }

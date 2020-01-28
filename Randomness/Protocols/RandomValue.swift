@@ -26,31 +26,45 @@
 
 import Foundation
 
-typealias Generator<T> = () -> T
-
 protocol RandomValue {
     associatedtype Value where Value: Comparable, Value: RandomValue
-    static func wrappedRandom(in range: Range<Value>) -> () -> Value
-    static func wrappedRandom(in range: ClosedRange<Value>) -> () -> Value
+    static func random(in range: Range<Value>) -> Value
+    static func random(in range: ClosedRange<Value>) -> Value
     
     static func closedRange() -> ClosedRange<Value>
 }
 
-extension RandomValue where Self: Comparable {
-    static func wrappedRandom(in range: Range<Self.Value>) -> () -> Self.Value {
-        return wrappedRandom(in: range.lowerBound...range.upperBound)
-    }
-}
-
-struct User {
+struct Person: RandomValueSimple {
+    
     let name: String
     let age: Int
-    let score: Int
-    let team: String
+    
+    static func random() -> Person {
+        makeRandom(Person.init)
+    }
 }
 
-extension User: RandomValueSimple {
-    static func wrappedRandom() -> () -> User {
-        return makeRandom(User.init)
+struct User: RandomValueSimple {
+    let person: Person
+    let score: Int
+    
+    static func random() -> User {
+        makeRandom(User.init)
     }
+}
+
+struct SomethingElse: RandomValueSimple {
+    let person: Person
+    let value: Int
+    
+    static func random() -> SomethingElse {
+        SomethingElse(
+            person: .random(),
+            value: .random()
+        )
+    }
+}
+
+protocol RandomFromRange {
+    associatedtype Range
 }

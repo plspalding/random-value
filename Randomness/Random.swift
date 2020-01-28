@@ -29,28 +29,3 @@ import Foundation
 
 
 
-
-
-
-
-
-//
-//
-//func makeRandom<T: RandomValue>(
-//    type _: T.Type,
-//    range: Range<T>,
-//    quantity: Int)
-//    -> [Generator<T.Value>] where T.RangeValue == T
-//{
-//
-//    var array: [Generator<T.Value>] = []
-//    for _ in 1...quantity {
-//        let r = T.wrapRandom(in: range)
-//        array.append(r)
-//    }
-//    return array
-//}
-
-
-
-
