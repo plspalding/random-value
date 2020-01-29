@@ -29,10 +29,71 @@ import Foundation
 protocol RandomValueSimple {
     associatedtype Value
     static func random() -> Value
+    
+    static func boolValue() -> Bool
+    
+    static func intRange() -> ClosedRange<Int>
+    static func int8Range() -> ClosedRange<Int8>
+    static func int16Range() -> ClosedRange<Int16>
+    static func int32Range() -> ClosedRange<Int32>
+    static func int64Range() -> ClosedRange<Int64>
+    
+    static func uIntRange() -> ClosedRange<UInt>
+    static func uInt8Range() -> ClosedRange<UInt8>
+    static func uInt16Range() -> ClosedRange<UInt16>
+    static func uInt32Range() -> ClosedRange<UInt32>
+    static func uInt64Range() -> ClosedRange<UInt64>
 }
 
 extension RandomValueSimple where Self: RandomValue {
     static func random() -> Self.Value {
         return random(in: Self.closedRange())
+    }
+}
+
+extension RandomValueSimple {
+    
+    static func boolValue() -> Bool {
+        .random()
+    }
+    
+    static func intRange() -> ClosedRange<Int> {
+        .min...Int.max
+    }
+    
+    static func int8Range() -> ClosedRange<Int8>{
+        .min...Int8.max
+    }
+    
+    static func int16Range() -> ClosedRange<Int16> {
+        .min...Int16.max
+    }
+    
+    static func int32Range() -> ClosedRange<Int32> {
+        .min...Int32.max
+    }
+    
+    static func int64Range() -> ClosedRange<Int64> {
+        .min...Int64.max
+    }
+    
+    static func uIntRange() -> ClosedRange<UInt> {
+        .min...UInt.max
+    }
+    
+    static func uInt8Range() -> ClosedRange<UInt8> {
+        .min...UInt8.max
+    }
+    
+    static func uInt16Range() -> ClosedRange<UInt16> {
+        .min...UInt16.max
+    }
+    
+    static func uInt32Range() -> ClosedRange<UInt32> {
+        .min...UInt32.max
+    }
+    
+    static func uInt64Range() -> ClosedRange<UInt64> {
+        .min...UInt64.max
     }
 }

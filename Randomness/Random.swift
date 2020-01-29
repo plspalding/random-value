@@ -26,6 +26,48 @@
 
 import Foundation
 
+struct Person: RandomValueSimple {
+    let name: String
+    let age: Int
+    let isMember: Bool
+    
+    static func random() -> Person {
+        makeRandom(Person.init)
+    }
+    
+    
+    static func boolValue() -> Bool {
+        true
+    }
+    
+    static func intRange() -> ClosedRange<Int> {
+        1...100
+    }
+}
 
+struct User: RandomValueSimple {
+    let person: Person
+    let score: Int
+    
+    static func random() -> User {
+        makeRandom(User.init)
+    }
+}
+
+struct SomethingElse: RandomValueSimple {
+    let person: Person
+    let value: Int
+    
+    static func random() -> SomethingElse {
+        SomethingElse(
+            person: .random(),
+            value: .random(in: 1...3)
+        )
+    }
+}
+
+protocol RandomFromRange {
+    associatedtype Range
+}
 
 

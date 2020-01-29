@@ -33,38 +33,3 @@ protocol RandomValue {
     
     static func closedRange() -> ClosedRange<Value>
 }
-
-struct Person: RandomValueSimple {
-    
-    let name: String
-    let age: Int
-    
-    static func random() -> Person {
-        makeRandom(Person.init)
-    }
-}
-
-struct User: RandomValueSimple {
-    let person: Person
-    let score: Int
-    
-    static func random() -> User {
-        makeRandom(User.init)
-    }
-}
-
-struct SomethingElse: RandomValueSimple {
-    let person: Person
-    let value: Int
-    
-    static func random() -> SomethingElse {
-        SomethingElse(
-            person: .random(),
-            value: .random()
-        )
-    }
-}
-
-protocol RandomFromRange {
-    associatedtype Range
-}

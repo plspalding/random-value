@@ -26,12 +26,6 @@
 
 import Foundation
 
-extension Int: RandomValue, RandomValueSimple {
-    static func closedRange() -> ClosedRange<Int> {
-        .min...Int.max
-    }
-}
-
 // Create Random value string or something as doesn't fit in random value
 extension String: RandomValue, RandomValueSimple {
     static func random(in range: Range<String>) -> String {
@@ -51,7 +45,11 @@ extension String: RandomValue, RandomValueSimple {
     }
 }
 
-extension Bool: RandomValueSimple {}
+extension Bool: RandomValueSimple {
+    static func random() -> Self {
+        boolValue()
+    }
+}
 
 //extension Double: RandomValue {
 //    static func random(in range: ClosedRange<Double>)  -> Double {
@@ -67,48 +65,55 @@ extension Bool: RandomValueSimple {}
 //    }
 //}
 //
+
+extension Int: RandomValue, RandomValueSimple {
+    static func closedRange() -> ClosedRange<Int> {
+        Self.intRange()
+    }
+}
+
 extension Int8: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<Int8> {
-        .min...Int8.max
+        Self.int8Range()
     }
 }
 extension Int16: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<Int16> {
-        .min...Int16.max
+        Self.int16Range()
     }
 }
 extension Int32: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<Int32> {
-        .min...Int32.max
+        Self.int32Range()
     }
 }
 extension Int64: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<Int64> {
-        .min...Int64.max
+        Self.int64Range()
     }
 }
 extension UInt: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<UInt> {
-        .min...UInt.max
+        Self.uIntRange()
     }
 }
 extension UInt8: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<UInt8> {
-        .min...UInt8.max
+        Self.uInt8Range()
     }
 }
 extension UInt16: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<UInt16> {
-        .min...UInt16.max
+        Self.uInt16Range()
     }
 }
 extension UInt32: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<UInt32> {
-        .min...UInt32.max
+        Self.uInt32Range()
     }
 }
 extension UInt64: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<UInt64> {
-        .min...UInt64.max
+        Self.uInt64Range()
     }
 }
