@@ -43,6 +43,9 @@ protocol RandomValueSimple {
     static func uInt16Range() -> ClosedRange<UInt16>
     static func uInt32Range() -> ClosedRange<UInt32>
     static func uInt64Range() -> ClosedRange<UInt64>
+    
+    static func floatRange() -> ClosedRange<Float>
+    static func doubleRange() -> ClosedRange<Double>
 }
 
 extension RandomValueSimple where Self: RandomValue {
@@ -95,5 +98,12 @@ extension RandomValueSimple {
     
     static func uInt64Range() -> ClosedRange<UInt64> {
         .min...UInt64.max
+    }
+    
+    static func floatRange() -> ClosedRange<Float> {
+        -Float.greatestFiniteMagnitude...Float.greatestFiniteMagnitude
+    }
+    static func doubleRange() -> ClosedRange<Double> {
+        -Double.greatestFiniteMagnitude...Double.greatestFiniteMagnitude
     }
 }

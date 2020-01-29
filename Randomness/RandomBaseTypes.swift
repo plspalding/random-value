@@ -51,20 +51,18 @@ extension Bool: RandomValueSimple {
     }
 }
 
-//extension Double: RandomValue {
-//    static func random(in range: ClosedRange<Double>)  -> Double {
-//        let r = Double.random(in: range)
-//        return r
-//    }
-//}
 
-//extension Float: RandomValue {
-//    static func random(in range: ClosedRange<Float>)  -> Float {
-//        let r = Float.random(in: range)
-//        return r
-//    }
-//}
-//
+extension Float: RandomValue, RandomValueSimple {
+    static func closedRange() -> ClosedRange<Float> {
+        Self.floatRange()
+    }
+}
+
+extension Double: RandomValue , RandomValueSimple{
+    static func closedRange() -> ClosedRange<Double> {
+        Self.doubleRange()
+    }
+}
 
 extension Int: RandomValue, RandomValueSimple {
     static func closedRange() -> ClosedRange<Int> {
